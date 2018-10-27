@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lesson 3</title>
+  <script>
+    /*
+    1. Сделать собственные примеры методов применяемых для массивов.
+    */
+    console.log('Задача №1: Сделать собственные примеры методов применяемых для массивов.');
+
+    console.log('### Метод "join()" - преобразует элементы массива в строки и объединяет их.\n');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Массив');
+    console.log(testArray);
+    console.log('преобразовуется в строку:\n');
+    var resultStr = testArray.join('+'); //преобразует элементы массива в строки и объединит их, разделяя знаком "+"
+    console.log(resultStr);
+
+    console.log('### Метод "reverse()" - меняет порядок следования элементов на противоположный.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Массив');
+    console.log(testArray);
+    testArray.reverse();
+    console.log('изменил порядок следования элементов на противоположный:\n');
+    console.log(testArray);
+
+    console.log('### Метод "sort()" - сортировка элементов массива в алфавитном порядке.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Элементы массива');
+    console.log(testArray);
+    testArray.sort();
+    console.log('отсортированы в алфавитном порядке:\n');
+    console.log(testArray);
+
+    console.log('### Метод "concat()" - возвращает новый массив, содержащий элементы исходного массива, дополненного параметрами метода.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Добавим к массиву');
+    console.log(testArray);
+    console.log('два новых элемента "black" и "white":\n');
+    var resultArray = testArray.concat('black', 'white');
+    console.log(resultArray);
+
+    console.log('### Метод "slice()" - возвращает фрагмент или подмассив, указанного массива.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Выделим из массива');
+    console.log(testArray);
+    console.log('подмассив');
+    var subArray = testArray.slice(2, 5); //выбираем фрагмент массива с 3-го элемента ("yellow") по 5-й элемент ("lightblue")
+    console.log(subArray);
+
+    console.log('### Метод "splice()" - универсальный метод для вставки/удаления элементов массива.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Вырежем из массива');
+    console.log(testArray);
+    console.log('подмассив с 3-го элемента ("yellow") по 5-й элемент ("lightblue)"');
+    var cutArray = testArray.splice(2, 3);
+    console.log(cutArray);
+    console.log('и вставим его в начало массива');
+    testArray.splice(0, 0, cutArray);//начиная с 0-го индекса, удалив 0 элементов, вставляем массив cutArray
+    console.log(testArray);
+
+    console.log('### Метод "push()" - добавляет элементы в конец массива и возвращает его новую длину.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Добавим в конец массива');
+    console.log(testArray);
+    console.log('с длинной ' + testArray.length + ' два новых элемента "black" и "white"');
+    var newLength = testArray.push('black', 'white');
+    console.log('получим массив');
+    console.log(testArray);
+    console.log('с новой длиной ' + newLength);
+
+    console.log('### Метод "pop()" - удаляет последний элемент из массива и возвращает удаленное значение.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Удалим из массива');
+    console.log(testArray);
+    var deleteElement = testArray.pop();
+    console.log('последний элемент ' + deleteElement);
+    console.log('останется массив');
+    console.log(testArray);
+
+    console.log('### Метод "unshift()" - добавляет элементы в начало массива и возвращает его новую длину.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Добавим в начало массива');
+    console.log(testArray);
+    console.log('с длинной ' + testArray.length + ' два новых элемента "black" и "white"');
+    var newLength = testArray.unshift('black', 'white');
+    console.log('получим массив');
+    console.log(testArray);
+    console.log('с новой длиной ' + newLength);
+
+    console.log('### Метод "shift()" - удаляет первый элемент из массива и возвращает удаленное значение.');
+    var testArray = ['red', 'orange', 'yellow', 'green', 'lightblue', 'blue', 'purple'];
+    console.log('Удалим из массива');
+    console.log(testArray);
+    var deleteElement = testArray.shift();
+    console.log('последний элемент ' + deleteElement);
+    console.log('останется массив');
+    console.log(testArray);
+
+    console.log('***********************************');
+
+
+    /*
+    2. Создать программу, выполняющую вставку элемента в массив после элемента, значение которого укажет пользователь.
+    */
+    console.log('Задача №2: Создать программу, выполняющую вставку элемента в массив после элемента, значение которого укажет пользователь.');
+
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var pasteItem = prompt('Задача №2\nДан массив: \n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10] \nВведите значение нового элемента!', 'some item');
+    var userItemValue = +prompt('Укажите индекс элемента от 0 до 9, после которого необходимо сделать вставку элемента ' + pasteItem, '3');
+
+    console.log('Массив до вставки: ' + '[' + arr + ']');
+
+    arr.splice(userItemValue + 1, 0, pasteItem);
+
+    console.log('Массив после вставки: ' + '['  + arr + ']');
+    console.log('***********************************');
+
+
+
+    /*
+    3. Создать многомерный массив, размер массива получить от пользователя. Каждый нечётный подмассив заполнить значением 'odd', а чётный - 'even'. Размер каждого вложенного массива - 3.
+    */
+    console.log('Задача №3: Создать многомерный массив, размер массива получить от пользователя. Каждый нечётный подмассив заполнить значением \'odd\', а чётный - \'even\'. Размер каждого вложенного массива - 3.');
+
+    var arraySize = +prompt('Задача №3\nВведите размер желаемого массива', '5');
+    var array = new Array(arraySize);
+
+    for (var i = 0; i < arraySize; i++) {
+      array[i] = new Array(3);
+
+      if (i%2) {
+        for (var j = 0; j < 3; j++) {
+          array[i][j] = 'odd';
+          };
+        } else {
+          for (var j = 0; j < 3; j++) {
+            array[i][j] = 'even';
+          };    
+        }
+      }
+
+    console.log('Желаемый массив имеет следующий вид:');
+    console.log(array);
+    console.log('***********************************');
+
+
+    /*
+    4. Создать два произвольных массива: один массив - любимая спортивная команда / модели автомобилей / города, во втором - количество игроков в команде / объем двигателя / количество жителей в городе. Объединить данные из двух массивов и вывести их в одну строку. 
+    */
+    console.log('Задача №4: Создать два произвольных массива: один массив - любимая спортивная команда / модели автомобилей / города, во втором - количество игроков в команде / объем двигателя / количество жителей в городе. Объединить данные из двух массивов и вывести их в одну строку.');
+
+    var firstArray  = ['St.Pauli', 'Honda', 'London'];
+    var secondArray = ['Количество игроков в команде - 11', 'Объем двигателя - 2.2л', 'Количество жителей - 8.5млн'];
+    var combinedArray = [];
+
+    for (var i = 0; i < 3; i++) {
+      combinedArray.push(firstArray[i] + ' : ' + secondArray[i]);
+    };
+
+    var resultStr = combinedArray.join(', ');
+
+    console.log(resultStr);
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
